@@ -1,0 +1,4 @@
+CREATE TABLE users(email varchar(10), password varchar(10), firstname varchar(10), familyname varchar(10), gender varchar(6), city varchar(10), country varchar(10), token varchar(36));
+
+CREATE TABLE messages(email_from varchar(10), email_to varchar(10), text varchar(200), date varchar(30));
+

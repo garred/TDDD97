@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link href="/client.css" type="text/css" rel="stylesheet">
+    <script src="/client.js" type="text/javascript"></script>
+    <title>Twidder!</title>
+
+    <!-- -------------------------------------------- WELCOME VIEW -------------------------------------------- -->
+
+    <script type="text/html" id="welcome_view">
+        <div class="welcome_view_content">
+
+            <!-- Left side (logo) -->
+            <div class="welcome_left">
+                <div class="welcome_logo">
+                        <img src="/wimage.png" alt="Welcome image"/>
+                </div>
+            </div>
+
+            <!-- Right side -->
+
+            <div class="welcome_right">
+
+                <!-- Login -->
+
+                <div class="welcome_login">
+                    <h1>Login</h1>
+                    <form id="login_form" onsubmit="return welcome__validate_login()">
+                        <label>email:</label><input type="email" name="email" required/> <br/>
+                        <label>Password:</label><input type="password" name="password" required/> <br/>
+                        <input type="submit" value="Login">
+                    </form>
+                </div>
+
+                <!-- Signup -->
+
+                <div class="welcome_signup">
+                    <h1>Signup</h1>
+                    <form id="signup_form" onsubmit="return welcome__validate_signup()">
+                        <label>email:</label><input type="email" name="email" required/> <br/>
+                        <label>Password:</label><input type="password" name="password" required/> <br/>
+                        <label>Repeat pass:</label><input type="password" name="repeated_password" required/> <br/>
+                        <label>First name:</label><input type="text" name="firstname" required/> <br/>
+                        <label>Family name:</label><input type="text" name="familyname"/> <br/>
+                        <label>Gender:</label><select name="gender">
+                            <option value="no_response">---</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select> <br/>
+                        <label>City:</label><input type="text" name="city" required/> <br/>
+                        <label>Country:</label><input type="text" name="country" required/> <br/>
+                        <input type="submit" value="Signup">
+                    </form>
+                </div>
+
+            </div>
+
+        </div>
+    </script>
+
+    <!-- -------------------------------------------- PROFILE VIEW -------------------------------------------- -->
+
+    <!-- <script type="text/view" id="profile_view"> -->
+    <script type="text/html" id="profile_view">
+    <div class="profile_content">
+
+        <!-- TABS -->
+
+        <div class="profile_tabs">
+            <div class="tab" id="home_tab" onclick="profile__home_tab_click()">Home</div>
+            <div class="tab" id="browse_tab" onclick="profile__browse_tab_click()">Browse</div>
+            <div class="tab" id="account_tab" onclick="profile__account_tab_click()">Account</div>
+        </div>
+        <br/>
+
+        <div class="profile_tabs_content">
+
+            <!-- HOME VIEW -->
+
+            <div class="tab_content" id="home_content">
+                <h1>Home</h1>
+
+                <div class="profile_info">
+                    <h2>Personal info:</h2>
+                    <label>email:</label><div id="home_email"></div><br/>
+                    <label>First name:</label><div id="home_firstname"></div><br/>
+                    <label>Family name:</label><div id="home_familyname"></div><br/>
+                    <label>Gender:</label><div id="home_gender"></div><br/>
+                    <label>City:</label><div id="home_city"></div><br/>
+                    <label>Country:</label><div id="home_country"></div><br/>
+                </div>
+
+                <div class="profile_new_message">
+                    <h2>New message:</h2>
+                    <form onsubmit="return home__send_message()">
+                        <textarea class="text_area" id="home_new_message_text" required>Send a new message.</textarea><br/>
+                        <input type="submit" value="Send">
+                    </form>
+                </div>
+
+                <div class="profile_old_messages">
+                    <h2>Old messages:</h2>
+                    <input type="button" value="Update messages" id="home_old_messages_update_button" onclick="home__update_old_messages()">
+                    <br/><br/>
+                    <div id="home_old_messages_content"></div>
+                </div>
+
+            </div>
+
+
+            <!-- BROWSE VIEW -->
+
+            <div class="tab_content" id="browse_content">
+                <h1>Browse</h1>
+                <div class="profile_new_message">
+                    <form onsubmit="return browse__search_user()">
+                        <label>Search user: </label><input type="email" id="browse_search_email" required/>
+                        <input type="submit" value="Search">
+                    </form>
+                </div>
+
+                <div class="profile_info hidden" id="browse_info">
+                    <h2>Personal info:</h2>
+                    <label>email:</label><div id="browse_email"></div><br/>
+                    <label>First name:</label><div id="browse_firstname"></div><br/>
+                    <label>Family name:</label><div id="browse_familyname"></div><br/>
+                    <label>Gender:</label><div id="browse_gender"></div><br/>
+                    <label>City:</label><div id="browse_city"></div><br/>
+                    <label>Country:</label><div id="browse_country"></div><br/>
+                </div>
+
+                <div class="profile_new_message hidden" id="browse_new_message">
+                    <h2>New message:</h2>
+                    <form onsubmit="return browse__send_message()">
+                        <textarea class="text_area" id="browse_new_message_text" required>Send a new message.</textarea><br/>
+                        <input type="submit" value="Send">
+                    </form>
+                </div>
+
+                <div class="profile_old_messages hidden" id="browse_old_messages">
+                    <h2>Old messages:</h2>
+                    <input type="button" value="Update messages" id="browse_old_messages_update_button" onclick="browse__update_old_messages()">
+                    <br/>
+                    <div id="browse_old_messages_content"></div>
+                </div>
+
+            </div>
+
+
+            <!-- ACCOUNT VIEW -->
+
+            <div class="tab_content" id="account_content">
+                <h1>Account</h1>
+                <form id="change_password_form" onsubmit="return account__validate_password_change()">
+                    <label>Old password:</label><input type="password" name="old_password" required/><br/>
+                    <label>New pass:</label><input type="password" name="new_password" required/><br/>
+                    <label>Repeat:</label><input type="password" name="repeat_new_password" required/><br/>
+                    <input type="submit" value="Change password">
+                </form>
+                <br/>
+                <input type="button" onclick="account__signout()" value="Signout">
+            </div>
+
+        </div>
+
+    </div>
+    </script>
+</head>
+
+
+<body>
+    <div id="app_content">
+
+    </div>
+
+    <div>
+        <p id="hidden_error" class="footer">Unknown error.</p>
+        <p id="hidden_success" class="footer">Unknown message.</p>
+    </div>
+
+</body>
+
+</html>

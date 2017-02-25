@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="welcome.css" type="text/css" rel="stylesheet">
+    <title>Title</title>
+</head>
+<body>
+    <div class="content">
+        <div class="left">
+            <div class="logo">
+                    <img src="wimage.png" alt="Welcome image"/>
+            </div>
+        </div>
+
+        <div class="right">
+            <div class="login">
+                <h1>Login</h1>
+                <form>
+                    <label>email:</label><input type="text" name="login_email"/> <br/>
+                    <label>Password:</label><input type="password" name="login_password"/> <br/>
+                    <input type="submit">
+                </form>
+            </div>
+
+            <div class="signup">
+                <h1>Signup</h1>
+                <form>
+                    <label>email:</label><input type="text" name="signup_email"/> <br/>
+                    <label>Password:</label><input type="password" name="signup_password"/> <br/>
+                    <label>Repeat:</label><input type="password" name="login_repeat_password"/> <br/>
+                    <label>First name:</label><input type="text" name="signup_name"/> <br/>
+                    <label>Family name:</label><input type="text" name="signup_surname"/> <br/>
+                    <label>Gender:</label><select name="gender">
+                        <option value="no_response">---</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select> <br/>
+                    <label>City:</label><input type="text" name="signup_city"/> <br/>
+                    <label>Country:</label><input type="text" name="signup_country"/> <br/>
+                    <input type="submit">
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
