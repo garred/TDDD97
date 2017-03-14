@@ -1,0 +1,4 @@
+Cosas que hacer:
+- Cambiar la url de la página con cada cambio de estado. Ver 
+  - http://stackoverflow.com/questions/3338642/updating-address-bar-with-new-url-without-hash-or-reloading-the-page
+  - http://spoiledmilk.com/blog/html5-changing-the-browser-url-without-refreshing-page/

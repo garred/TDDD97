@@ -1,0 +1,43 @@
+{
+	"nodes": [
+		{
+			"id": "b@b", "group": 1
+		},
+		{
+			"id": "a@a", "group": 2
+		},
+		{
+			"id": "c@c", "group": 1
+		},
+		{
+			"id": "z@z", "group": 1
+		}
+	],
+	"links": [
+		{
+			"source": "a@a",
+			"target": "c@c",
+			"value": 1
+		},
+		{
+			"source": "a@a",
+			"target": "a@a",
+			"value": 28
+		},
+		{
+			"source": "a@a",
+			"target": "z@z",
+			"value": 26
+		},
+		{
+			"source": "c@c",
+			"target": "z@z",
+			"value": 2
+		},
+		{
+			"source": "a@a",
+			"target": "b@b",
+			"value": 30
+		}
+	]
+}
