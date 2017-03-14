@@ -1,3 +1,7 @@
+// Global variables
+
+var timeout_clear_messages = null;  // Function that delay the cleaning of messages. Store it to be able to cancel if needed.
+var ws = null;                      // Websocket
 
 // What to do when loading the web first time
 
@@ -13,7 +17,7 @@ window.onload = function() {
 
     // Check if a session exists
 
-    if (localStorage.client_token) {
+    if (sessionStorage.client_token) {
 
         // Fulfill the user info
         app_content.innerHTML = profile_view.innerHTML;
@@ -22,7 +26,7 @@ window.onload = function() {
 
         // Preparing the callback
         var request = new XMLHttpRequest();
-        request.open("GET", "/api/get_user_data_by_token/?token="+localStorage.client_token, true);
+        request.open("GET", "/api/get_user_data_by_token/?token="+sessionStorage.client_token, true);
         request.onload = function() {
             var response = JSON.parse(request.responseText);
             if (response.success) {
@@ -43,36 +47,7 @@ window.onload = function() {
     } else {
         app_content.innerHTML = welcome_view.innerHTML;
     }
-
-
-
-
-
 };
-
-
-    // Web sockets
-
-    var socket = new WebSocket('ws://127.0.0.1:5000/websocket');
-    socket.onopen = function() {
-        var msg = {'data': 'Hello world!'};
-        socket.send(JSON.stringify(msg));
-        console.log('Connected.');
-    };
-
-    socket.onerror = function() {
-        console.log('Error.');
-    };
-
-    socket.onmessage = function(event) {
-        console.log('Message: ' + event.data);
-    };
-
-    socket.onclose = function() {
-        console.log('WS closed.');
-    }
-
-
 
 
 // Show messages
@@ -81,12 +56,16 @@ function popup_success(msg) {
     var s = document.getElementById('hidden_success');
     s.style.display = 'block';
     s.innerHTML = msg;
+    if (timeout_clear_messages) {clearTimeout(timeout_clear_messages);}
+    timeout_clear_messages = setTimeout(function() { hide_popup_messages(); }, 5000);
 }
 
 function popup_error(msg) {
     var e = document.getElementById('hidden_error');
     e.style.display = 'block';
     e.innerHTML = msg;
+    if (timeout_clear_messages) {clearTimeout(timeout_clear_messages);}
+    timeout_clear_messages = setTimeout(function() { hide_popup_messages(); }, 5000);
 }
 
 
@@ -106,10 +85,9 @@ function kick_out(msg) {
     var error = document.getElementById('hidden_error');
     error.style.display = 'block';
     error.innerHTML = msg;
-    localStorage.clear();
-    setTimeout(function() {
-        window.onload();
-    }, 1000);
+    if (ws) { ws.close(); }
+    sessionStorage.clear();
+    setTimeout(function() { window.onload(); }, 1000);
 }
 
 
@@ -143,24 +121,58 @@ function welcome__validate_login() {
     request.onload = function() {
         var response = JSON.parse(request.responseText);
 
-        // Checking server errors
-
-        if (!response['success']) {
-            popup_error(response['message']);
-
-        } else {
-            // Everything is correct. Inform the user and save the data.
-
+        // Everything is correct. Inform the user and save the data.
+        if (response['success']) {
             popup_success('Login success!');
-            localStorage.client_token = response['token'];
+            sessionStorage.client_token = response['token'];
+            connect_websocket(email, sessionStorage.client_token);
             setTimeout(function() { window.onload(); }, 1000);
+
+        // Showing errors
+        } else {
+            popup_error(response['message']);
         }
     };
 
     request.send();
 
-
     return false; //We return false anyway because we don't want to refresh the page!
+}
+
+
+// Creates a new websocket
+
+function connect_websocket(email, token) {
+
+    ws = new WebSocket('ws://127.0.0.1:5000/websocket');
+
+    ws.onopen = function () {
+        var msg = {'email': email, 'token': token};
+        ws.send(JSON.stringify(msg));
+        console.log('Connected.');
+    };
+
+    ws.onerror = function () {
+        console.log('Error.');
+        sessionStorage.removeItem(ws);
+        kick_out('Signed out by error in websocket connection.');
+    };
+
+    ws.onmessage = function (event) {
+        var msg = JSON.parse(event.data);
+        if (msg.data == "update_old_messages") {
+            document.getElementById('home_old_messages_update_button').click();
+            document.getElementById('browse_old_messages_update_button').click();
+            popup_success('You have a new message!');
+        }
+        console.log('Message: ' + event.data);
+    };
+
+    ws.onclose = function () {
+        console.log('WS closed.');
+        sessionStorage.removeItem(ws);
+        kick_out('Signed out.');
+    }
 }
 
 
@@ -227,9 +239,10 @@ function welcome__validate_signup() {
 function account__signout() {
     // Preparing the callback
     var request = new XMLHttpRequest();
-    request.open("GET", "/api/sign_out/?token="+localStorage.client_token, true);
+    request.open("GET", "/api/sign_out/?token="+sessionStorage.client_token, true);
     request.send();
-    localStorage.clear();
+    if (ws) { ws.close(); }
+    sessionStorage.clear();
     window.onload();
 }
 
@@ -313,7 +326,7 @@ function account__validate_password_change() {
     var request = new XMLHttpRequest();
 
     request.open("POST",
-        "/api/change_password/?token="+localStorage.client_token+"&oldPassword="+encodeURIComponent(oldPassword)+
+        "/api/change_password/?token="+sessionStorage.client_token+"&oldPassword="+encodeURIComponent(oldPassword)+
         "&newPassword="+encodeURIComponent(newPassword),
         true);
 
@@ -342,7 +355,7 @@ function home__send_message() {
     var request = new XMLHttpRequest();
 
     request.open("POST",
-        "/api/post_message/?token="+localStorage.client_token+"&content="+encodeURIComponent(msg),
+        "/api/post_message/?token="+sessionStorage.client_token+"&content="+encodeURIComponent(msg),
         true);
 
     request.onload = function() {
@@ -367,7 +380,7 @@ function home__update_old_messages() {
     // Preparing the callback
     var request = new XMLHttpRequest();
 
-    request.open("GET", "/api/get_user_messages_by_token/?token="+localStorage.client_token, true);
+    request.open("GET", "/api/get_user_messages_by_token/?token="+sessionStorage.client_token, true);
 
     request.onload = function() {
         var response = JSON.parse(request.responseText);
@@ -400,16 +413,16 @@ function browse__search_user() {
     // Preparing the callback
     var request = new XMLHttpRequest();
     request.open("GET", "/api/get_user_data_by_email/?email="+encodeURIComponent(searched_email)+
-        "&token="+localStorage.client_token,
+        "&token="+sessionStorage.client_token,
         true);
     request.onload = function() {
         var response = JSON.parse(request.responseText);
 
         if (response.success) {
             // Saving the last searched user
-            localStorage.browsed_user = searched_email;
+            sessionStorage.browsed_user = searched_email;
        } else {
-            localStorage.removeItem('browsed_user');
+            sessionStorage.removeItem('browsed_user');
             popup_error('User not found!');
         }
 
@@ -428,7 +441,7 @@ function browse__update_views(user_info_response = null) {
     var browse_new_message_element = document.getElementById('browse_new_message');
     var browse_old_messages_element = document.getElementById('browse_old_messages');
 
-    if (!localStorage.browsed_user) {
+    if (!sessionStorage.browsed_user) {
         browse_info_element.style.display = 'none';
         browse_new_message_element.style.display = 'none';
         browse_old_messages_element.style.display = 'none';
@@ -442,7 +455,7 @@ function browse__update_views(user_info_response = null) {
         if (!user_info_response) {
 
             var request = new XMLHttpRequest();
-            request.open("GET", "/api/get_user_data_by_email/?email="+encodeURIComponent(localStorage.browsed_user)+"&token="+localStorage.client_token, true);
+            request.open("GET", "/api/get_user_data_by_email/?email="+encodeURIComponent(sessionStorage.browsed_user)+"&token="+sessionStorage.client_token, true);
             request.onload = function() {
                 var response = JSON.parse(request.responseText);
                 if (response.success) {
@@ -484,7 +497,7 @@ function browse__send_message() {
     var request = new XMLHttpRequest();
 
     request.open("POST",
-        "/api/post_message/?token="+localStorage.client_token+"&toEmail="+localStorage.browsed_user+
+        "/api/post_message/?token="+sessionStorage.client_token+"&toEmail="+sessionStorage.browsed_user+
         "&content="+encodeURIComponent(msg),
         true);
 
@@ -508,7 +521,7 @@ function browse__send_message() {
 
 function browse__update_old_messages() {
     var request = new XMLHttpRequest();
-    request.open("GET", "/api/get_user_messages_by_email/?token="+localStorage.client_token+"&email="+localStorage.browsed_user, true);
+    request.open("GET", "/api/get_user_messages_by_email/?token="+sessionStorage.client_token+"&email="+sessionStorage.browsed_user, true);
 
     request.onload = function() {
         var response = JSON.parse(request.responseText);

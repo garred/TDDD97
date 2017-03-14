@@ -18,7 +18,8 @@ from datetime import datetime
 
 # Global objects
 
-logged_in_users = {}
+logged_users_by_token = {}
+websockets_by_email = {}
 
 
 # Flask-related things
@@ -72,7 +73,7 @@ def sign_in():
     if user and user['password'] == password:
         token = generate_token()
         database.update_token(user['email'], token)
-        logged_in_users[token] = email
+        logged_users_by_token[token] = email
         response = {'success': True, 'message': 'Successfully signed in.', 'token': token}
     else:
         response = {'success': False, 'message': 'Wrong username or password.'}
@@ -110,7 +111,7 @@ def sign_up():
 def sign_out():
     arg = request.args.to_dict()
     token = arg.get('token', None)
-    email = logged_in_users.pop(token, None)
+    email = logged_users_by_token.pop(token, None)
 
     if email:
         database.update_token(email, '')
@@ -128,8 +129,8 @@ def change_password():
     oldPassword = arg.get('oldPassword', None)
     newPassword = arg.get('newPassword', None)
 
-    if token in logged_in_users:
-        email = logged_in_users[token]
+    if token in logged_users_by_token:
+        email = logged_users_by_token[token]
         user = database.get_user_data_by_email(email)
         if user['password'] == oldPassword:
             database.update_password(email, newPassword)
@@ -146,7 +147,7 @@ def change_password():
 def get_user_data_by_token():
     arg = request.args.to_dict()
     token = arg.get('token', None)
-    email = logged_in_users.get(token, None)
+    email = logged_users_by_token.get(token, None)
     if email:
         response = database.get_user_data_by_email(email)
         if response:
@@ -166,7 +167,7 @@ def get_user_data_by_email():
     email = arg.get('email', None)
     token = arg.get('token', None)
 
-    if logged_in_users.get(token, None):
+    if logged_users_by_token.get(token, None):
         response = database.get_user_data_by_email(email)
         if response:
             del response['password']
@@ -183,7 +184,7 @@ def get_user_data_by_email():
 def get_user_messages_by_token():
     arg = request.args.to_dict()
     token = arg.get('token', None)
-    email = logged_in_users.get(token, None)
+    email = logged_users_by_token.get(token, None)
     if email:
         response = database.get_messages(email_to=email)
         response = {'success': True, 'message': 'User messages retrieved.', 'data': response}
@@ -200,7 +201,7 @@ def get_user_messages_by_email():
     email = arg.get('email', None)
     token = arg.get('token', None)
 
-    if logged_in_users.get(token, None):
+    if logged_users_by_token.get(token, None):
         response = database.get_messages(email_to=email)
         response = {'success': True, 'message': 'User messages retrieved.', 'data': response}
     else:
@@ -215,7 +216,7 @@ def post_message():
     arg = request.args.to_dict()
     token = arg.get('token', None)
     content = arg.get('content', None)
-    fromEmail = logged_in_users.get(token, None)
+    fromEmail = logged_users_by_token.get(token, None)
 
     if fromEmail:
         toEmail = arg.get('toEmail', None)
@@ -225,31 +226,53 @@ def post_message():
             response = {'success': True, 'message': 'Message posted.'}
         else:
             response = {'success': False, 'message': 'No such user.'}
+        if websockets_by_email.get(toEmail, None):
+            ws = websockets_by_email[toEmail]
+            if not ws.closed:
+                ws.send(json.dumps({'data': 'update_old_messages'}))
+            else:
+                del websockets_by_email[toEmail]
     else:
         response = {'success': False, 'message': 'You are not signed in.'}
 
     return json.dumps(response)
 
 
-socket_list = []
 
 @app.route('/websocket')
 def init_websocket():
 
+    # Is this request made by a websocket?
+
     if 'wsgi.websocket' in request.environ:
-        response = {'success': True, 'data': 'Websocket initialized'}
         ws = request.environ['wsgi.websocket']
-        ws.send(json.dumps(response))
-        sleep(5)
-        ws.send(json.dumps({'data': 'Hola mundo!'}))
-        socket_list.append(ws)
+        msg = json.loads(ws.receive())
+
+        token = msg.get('token', None)
+        email = msg.get('email', None)
+
+        # Check if we have another session opened with the same user. In this case, close it.
+
+        if token in logged_users_by_token and logged_users_by_token[token] == email:
+            if websockets_by_email.get(email, None): websockets_by_email[email].close() # kicks other signed in views the user could have
+
+            websockets_by_email[email] = ws
+            response = {'success': True, 'data': 'Websocket initialized'}
+            ws.send(json.dumps(response))
+
+
+        # Maintaining alive the websocket
 
         while True:
             msg = ws.receive()
-            print(msg)
+
+            # Do something with received messages
+            # ...
+
+            # If the websocket is closed or broken, we finish
             if msg is None:
-                socket_list.remove(ws)
-                ws.close()
+                if not ws.closed: ws.close()
+                break
 
         return ''
 
