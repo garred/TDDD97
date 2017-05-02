@@ -2,18 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ab4e8231-2562-4a05-8497-8eef5ce630d0" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/WP_Lab3/server.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/WP_Lab3/twidder/favicon.ico" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/WP_Lab3/twidder/wimage.png" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/WP_Lab3/client.css" afterPath="$PROJECT_DIR$/WP_Lab3/twidder/static/client.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/WP_Lab3/client.html" afterPath="$PROJECT_DIR$/WP_Lab3/twidder/static/client.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/WP_Lab3/client.js" afterPath="$PROJECT_DIR$/WP_Lab3/twidder/static/client.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/WP_Lab3/database.db" afterPath="$PROJECT_DIR$/WP_Lab3/twidder/database.db" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/WP_Lab3/database.py" afterPath="$PROJECT_DIR$/WP_Lab3/twidder/database_helper.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/WP_Lab3/database.schema" afterPath="$PROJECT_DIR$/WP_Lab3/twidder/database.schema" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/WP_Project/client.css" afterPath="$PROJECT_DIR$/WP_Project/twidder/static/client.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/WP_Project/client.html" afterPath="$PROJECT_DIR$/WP_Project/twidder/static/client.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/WP_Project/client.js" afterPath="$PROJECT_DIR$/WP_Project/twidder/static/client.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/WP_Project/d3-force.v1.min.js" afterPath="$PROJECT_DIR$/WP_Project/twidder/static/d3-force.v1.min.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/WP_Project/d3.min.js" afterPath="$PROJECT_DIR$/WP_Project/twidder/static/d3.min.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/WP_Project/database.py" afterPath="$PROJECT_DIR$/WP_Project/twidder/database_helper.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/WP_Project/favicon.ico" afterPath="$PROJECT_DIR$/WP_Project/twidder/static/favicon.ico" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/WP_Project/server.py" afterPath="$PROJECT_DIR$/WP_Project/twidder/twidder.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/WP_Project/wimage.png" afterPath="$PROJECT_DIR$/WP_Project/twidder/static/wimage.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WP_Project/database.db" afterPath="$PROJECT_DIR$/WP_Project/database.db" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WP_Project/client.css" afterPath="$PROJECT_DIR$/WP_Project/client.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WP_Project/_old/d3_test.html" afterPath="$PROJECT_DIR$/WP_Project/_old/d3_test.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WP_Project/selenium_tests.py" afterPath="$PROJECT_DIR$/WP_Project/selenium_tests.py" />
     </list>
     <ignored path="TDDD97.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -51,78 +52,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="client.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WP_Project/client.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="73">
-              <caret line="137" column="0" selection-start-line="137" selection-start-column="0" selection-end-line="137" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WP_Lab3/twidder/__init__.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="twidder.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WP_Lab3/twidder/twidder.py">
+        <entry file="file://$PROJECT_DIR$/WP_Project/twidder/twidder.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="322">
-              <caret line="286" column="26" selection-start-line="286" selection-start-column="0" selection-end-line="286" selection-end-column="26" />
-              <folding>
-                <element signature="e#25#38#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="database_helper.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WP_Lab3/twidder/database_helper.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="36" selection-start-line="5" selection-start-column="36" selection-end-line="5" selection-end-column="36" />
-              <folding>
-                <element signature="e#0#14#0" expanded="true" />
-                <marker date="1493736056460" expanded="true" signature="456:528" ph="insert into messages... " />
-                <marker date="1493736056460" expanded="true" signature="698:814" ph="select email... " />
-                <marker date="1493736056460" expanded="true" signature="900:996" ph="select email... " />
-                <marker date="1493736056460" expanded="true" signature="1057:1151" ph="select email... " />
-                <marker date="1493736056460" expanded="true" signature="1695:1737" ph="insert into users... " />
-                <marker date="1493736056460" expanded="true" signature="1865:1909" ph="update users... " />
-                <marker date="1493736056460" expanded="true" signature="2041:2088" ph="update users... " />
-                <marker date="1493736056460" expanded="true" signature="2220:2258" ph="select * fro... users" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="runserver.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/WP_Lab3/runserver.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="26" selection-start-line="6" selection-start-column="26" selection-end-line="6" selection-end-column="26" />
-              <folding>
-                <element signature="e#0#31#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="server.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WP_Project/server.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5115">
-              <caret line="341" column="25" selection-start-line="341" selection-start-column="19" selection-end-line="341" selection-end-column="25" />
+            <state relative-caret-position="255">
+              <caret line="65" column="38" selection-start-line="65" selection-start-column="38" selection-end-line="65" selection-end-column="38" />
               <folding>
                 <element signature="e#25#56#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="selenium_tests.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/WP_Project/selenium_tests.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -152,7 +99,6 @@
         <option value="$PROJECT_DIR$/WP_Project/server.py" />
         <option value="$PROJECT_DIR$/WP_Project/client.html" />
         <option value="$PROJECT_DIR$/WP_Project/client.js" />
-        <option value="$PROJECT_DIR$/WP_Project/selenium_tests.py" />
         <option value="$PROJECT_DIR$/WP_Lab1/serverstub.js" />
         <option value="$PROJECT_DIR$/WP_Project/client.css" />
         <option value="$PROJECT_DIR$/WP_Lab3/setup.py" />
@@ -162,6 +108,9 @@
         <option value="$PROJECT_DIR$/WP_Lab3/twidder/database.py" />
         <option value="$PROJECT_DIR$/WP_Lab3/twidder/twidder.py" />
         <option value="$PROJECT_DIR$/WP_Lab3/runserver.py" />
+        <option value="$PROJECT_DIR$/WP_Project/runserver.py" />
+        <option value="$PROJECT_DIR$/WP_Project/twidder/twidder.py" />
+        <option value="$PROJECT_DIR$/WP_Project/selenium_tests.py" />
       </list>
     </option>
   </component>
@@ -308,7 +257,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="WP_Lab3" />
+              <option name="myItemId" value="WP_Project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="twidder" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -322,11 +275,15 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="WP_Lab3" />
+              <option name="myItemId" value="WP_Project" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="twidder" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -345,11 +302,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/WP_Project/twidder/static" />
+      <recent name="$PROJECT_DIR$/WP_Project/twidder" />
+      <recent name="$PROJECT_DIR$/WP_Project/static" />
       <recent name="$PROJECT_DIR$/WP_Lab3/twidder/static" />
       <recent name="$PROJECT_DIR$/WP_Lab3/twidder" />
-      <recent name="$PROJECT_DIR$/WP_Project/_old" />
-      <recent name="$PROJECT_DIR$/WP_Project" />
-      <recent name="$PROJECT_DIR$/WP_Project/d3" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
@@ -387,7 +344,7 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="TDDD97" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/WP_Project/server.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/WP_Project/twidder/twidder.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -722,10 +679,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="24" width="1600" height="852" extended-state="0" />
-    <editor active="false" />
+    <frame x="0" y="24" width="1600" height="852" extended-state="1" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22551547" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22551547" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3292011" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3292011" sideWeight="0.503861" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32947233" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -766,12 +723,12 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/WP_Project/server.py</url>
+          <url>file://$PROJECT_DIR$/WP_Project/twidder/twidder.py</url>
           <line>92</line>
           <option name="timeStamp" value="16" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/WP_Project/server.py</url>
+          <url>file://$PROJECT_DIR$/WP_Project/twidder/twidder.py</url>
           <line>106</line>
           <option name="timeStamp" value="17" />
         </line-breakpoint>
@@ -791,21 +748,7 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/WP_Project/client.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WP_Project/client.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1770">
-          <caret line="118" column="39" selection-start-line="118" selection-start-column="39" selection-end-line="118" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WP_Project/server.py">
+    <entry file="file://$PROJECT_DIR$/WP_Project/twidder/twidder.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -815,14 +758,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WP_Project/database.py">
+    <entry file="file://$PROJECT_DIR$/WP_Project/twidder/database_helper.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
           <caret line="27" column="17" selection-start-line="27" selection-start-column="17" selection-end-line="27" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WP_Project/client.js">
+    <entry file="file://$PROJECT_DIR$/WP_Project/twidder/static/client.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2250">
           <caret line="150" column="15" selection-start-line="150" selection-start-column="8" selection-end-line="150" selection-end-column="15" />
@@ -863,7 +806,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WP_Project/server.py">
+    <entry file="file://$PROJECT_DIR$/WP_Project/twidder/twidder.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4785">
           <caret line="321" column="0" selection-start-line="321" selection-start-column="0" selection-end-line="321" selection-end-column="0" />
@@ -873,14 +816,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WP_Project/database.py">
+    <entry file="file://$PROJECT_DIR$/WP_Project/twidder/database_helper.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
           <caret line="27" column="17" selection-start-line="27" selection-start-column="17" selection-end-line="27" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WP_Project/client.js">
+    <entry file="file://$PROJECT_DIR$/WP_Project/twidder/static/client.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2250">
           <caret line="150" column="15" selection-start-line="150" selection-start-column="8" selection-end-line="150" selection-end-column="15" />
@@ -950,7 +893,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WP_Project/d3.min.js">
+    <entry file="file://$PROJECT_DIR$/WP_Project/twidder/static/d3.min.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="63" />
@@ -984,14 +927,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WP_Project/database.py">
+    <entry file="file://$PROJECT_DIR$/WP_Project/twidder/database_helper.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="284">
           <caret line="47" column="0" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WP_Project/d3-force.v1.min.js">
+    <entry file="file://$PROJECT_DIR$/WP_Project/twidder/static/d3-force.v1.min.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -1047,7 +990,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WP_Project/client.js">
+    <entry file="file://$PROJECT_DIR$/WP_Project/twidder/static/client.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1335">
           <caret line="89" column="27" selection-start-line="89" selection-start-column="27" selection-end-line="89" selection-end-column="27" />
@@ -1055,7 +998,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WP_Lab3/twidder/server.py" />
-    <entry file="file://$PROJECT_DIR$/WP_Project/client.html">
+    <entry file="file://$PROJECT_DIR$/WP_Project/twidder/static/client.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="403">
           <caret line="153" column="16" selection-start-line="153" selection-start-column="16" selection-end-line="153" selection-end-column="16" />
@@ -1072,13 +1015,6 @@
     <entry file="file://$PROJECT_DIR$/WP_Lab2/client.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1357">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WP_Project/selenium_tests.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
@@ -1101,24 +1037,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
           <caret line="19" column="42" selection-start-line="19" selection-start-column="42" selection-end-line="19" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WP_Project/client.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="73">
-          <caret line="137" column="0" selection-start-line="137" selection-start-column="0" selection-end-line="137" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WP_Project/server.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5115">
-          <caret line="341" column="25" selection-start-line="341" selection-start-column="19" selection-end-line="341" selection-end-column="25" />
-          <folding>
-            <element signature="e#25#56#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1148,7 +1066,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WP_Lab3/twidder/__init__.py">
+    <entry file="file://$PROJECT_DIR$/WP_Project/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -1156,12 +1074,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WP_Lab3/twidder/twidder.py">
+    <entry file="file://$PROJECT_DIR$/WP_Lab3/runserver.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="286" column="26" selection-start-line="286" selection-start-column="0" selection-end-line="286" selection-end-column="26" />
+        <state relative-caret-position="105">
+          <caret line="7" column="26" selection-start-line="0" selection-start-column="0" selection-end-line="7" selection-end-column="26" />
           <folding>
-            <element signature="e#25#38#0" expanded="true" />
+            <element signature="e#0#31#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1184,13 +1102,55 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WP_Lab3/runserver.py">
+    <entry file="file://$PROJECT_DIR$/WP_Project/runserver.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="26" selection-start-line="6" selection-start-column="26" selection-end-line="6" selection-end-column="26" />
+        <state relative-caret-position="30">
+          <caret line="2" column="29" selection-start-line="2" selection-start-column="29" selection-end-line="2" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WP_Lab3/twidder/twidder.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="15" selection-start-line="14" selection-start-column="15" selection-end-line="14" selection-end-column="15" />
           <folding>
-            <element signature="e#0#31#0" expanded="true" />
+            <element signature="e#25#38#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WP_Lab3/twidder/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WP_Project/twidder/static/client.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="73">
+          <caret line="137" column="0" selection-start-line="137" selection-start-column="0" selection-end-line="137" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WP_Project/twidder/twidder.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="65" column="38" selection-start-line="65" selection-start-column="38" selection-end-line="65" selection-end-column="38" />
+          <folding>
+            <element signature="e#25#56#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WP_Project/selenium_tests.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+          <folding />
         </state>
       </provider>
     </entry>
