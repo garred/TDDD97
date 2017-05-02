@@ -2,19 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ab4e8231-2562-4a05-8497-8eef5ce630d0" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/WP_Project/client.css" afterPath="$PROJECT_DIR$/WP_Project/twidder/static/client.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/WP_Project/client.html" afterPath="$PROJECT_DIR$/WP_Project/twidder/static/client.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/WP_Project/client.js" afterPath="$PROJECT_DIR$/WP_Project/twidder/static/client.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/WP_Project/d3-force.v1.min.js" afterPath="$PROJECT_DIR$/WP_Project/twidder/static/d3-force.v1.min.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/WP_Project/d3.min.js" afterPath="$PROJECT_DIR$/WP_Project/twidder/static/d3.min.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/WP_Project/database.py" afterPath="$PROJECT_DIR$/WP_Project/twidder/database_helper.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/WP_Project/favicon.ico" afterPath="$PROJECT_DIR$/WP_Project/twidder/static/favicon.ico" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/WP_Project/server.py" afterPath="$PROJECT_DIR$/WP_Project/twidder/twidder.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/WP_Project/wimage.png" afterPath="$PROJECT_DIR$/WP_Project/twidder/static/wimage.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WP_Project/database.db" afterPath="$PROJECT_DIR$/WP_Project/database.db" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WP_Project/_old/d3_test.html" afterPath="$PROJECT_DIR$/WP_Project/_old/d3_test.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WP_Project/selenium_tests.py" afterPath="$PROJECT_DIR$/WP_Project/selenium_tests.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WP_Lab2/database.db" afterPath="$PROJECT_DIR$/WP_Lab2/database.db" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WP_Lab2/client.js" afterPath="$PROJECT_DIR$/WP_Lab2/client.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WP_Lab2/server.py" afterPath="$PROJECT_DIR$/WP_Lab2/server.py" />
     </list>
     <ignored path="TDDD97.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -64,11 +54,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="selenium_tests.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="selenium_tests.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/WP_Project/selenium_tests.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="45">
               <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="server.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/WP_Lab2/server.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2288">
+              <caret line="57" column="42" selection-start-line="57" selection-start-column="42" selection-end-line="57" selection-end-column="42" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="client.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/WP_Lab2/client.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="142">
+              <caret line="89" column="22" selection-start-line="89" selection-start-column="22" selection-end-line="89" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -111,6 +121,8 @@
         <option value="$PROJECT_DIR$/WP_Project/runserver.py" />
         <option value="$PROJECT_DIR$/WP_Project/twidder/twidder.py" />
         <option value="$PROJECT_DIR$/WP_Project/selenium_tests.py" />
+        <option value="$PROJECT_DIR$/WP_Lab2/server.py" />
+        <option value="$PROJECT_DIR$/WP_Lab2/client.js" />
       </list>
     </option>
   </component>
@@ -243,47 +255,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="WP_Project" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Enlace hacia TDDD97 - Web Programming" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Enlace hacia TDDD97 - Web Programming" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WP_Project" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="twidder" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Enlace hacia TDDD97 - Web Programming" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Enlace hacia TDDD97 - Web Programming" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WP_Project" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="twidder" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
+              <option name="myItemId" value="WP_Lab2" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -962,20 +934,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WP_Lab2/client.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="337">
-          <caret line="309" column="19" selection-start-line="309" selection-start-column="19" selection-end-line="309" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WP_Lab2/server.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="216" column="52" selection-start-line="216" selection-start-column="52" selection-end-line="216" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/WP_Lab2/database.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
@@ -1030,6 +988,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="540">
           <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1150,6 +1109,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WP_Lab2/client.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="142">
+          <caret line="89" column="22" selection-start-line="89" selection-start-column="22" selection-end-line="89" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WP_Lab2/server.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2288">
+          <caret line="57" column="42" selection-start-line="57" selection-start-column="42" selection-end-line="57" selection-end-column="42" />
           <folding />
         </state>
       </provider>

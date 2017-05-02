@@ -87,7 +87,7 @@ function welcome__validate_login() {
 
     // Preparing the callback
     var request = new XMLHttpRequest();
-    request.open("GET", "/api/sign_in/?email="+encodeURIComponent(email)+"&password="+encodeURIComponent(password), true);
+    request.open("POST", "/api/sign_in/?email="+encodeURIComponent(email)+"&password="+encodeURIComponent(password), true);
     request.onload = function() {
         var response = JSON.parse(request.responseText);
 
@@ -179,7 +179,7 @@ function welcome__validate_signup() {
 function account__signout() {
     // Preparing the callback
     var request = new XMLHttpRequest();
-    request.open("GET", "/api/sign_out/?token="+localStorage.client_token, true);
+    request.open("POST", "/api/sign_out/?token="+localStorage.client_token, true);
     request.send();
     localStorage.clear();
     window.onload();
