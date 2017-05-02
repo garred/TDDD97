@@ -135,19 +135,17 @@ label {
     background-color: var(--background_color);
 }
 
+
 .profile_info {
-    float: left;
-    padding: 10px;
-    margin-right: 10px;
     background-color: var(--hover_color);
+    width: 150px;
+    float: left;
 }
 
 .profile_right {
-    float: right;
-    padding: 10px;
-    marging-left: 180px;
-    marging-right: 10px;
-    overflow: hidden;
+    margin-left: 10px;
+    float: left;
+    width: 850px;
 }
 
 .profile_new_message {
@@ -188,7 +186,7 @@ label {
 
 .wall_message {
     background-color: #cceeff;
-    max-width: 500px;
+    max-width: 850px;
     clear: both;
 }
 

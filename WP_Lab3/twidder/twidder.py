@@ -7,10 +7,10 @@ app = Flask(__name__)
 
 import json
 
-from gevent import pywsgi, sleep
+from gevent import pywsgi
 from geventwebsocket.handler import WebSocketHandler
 
-import database
+import database_helper
 
 from functools import wraps, update_wrapper
 from datetime import datetime
@@ -54,13 +54,13 @@ def generate_token():
 @app.route('/')
 @nocache
 def main_page():
-    return send_from_directory('', 'client.html')
+    return send_from_directory('static', 'client.html')
 
 
 @app.route('/<web>')
 @nocache
 def web_page(web):
-    return send_from_directory('', web)
+    return send_from_directory('static', web)
 
 
 @app.route('/api/sign_in/', methods=['GET'])
@@ -68,11 +68,11 @@ def sign_in():
     arg = request.args.to_dict() # Example: {'password': '12345', 'email': 'a@a'}
     email = arg.get('email', None)
     password = arg.get('password', None)
-    user = database.get_user_data_by_email(email)
+    user = database_helper.get_user_data_by_email(email)
 
     if user and user['password'] == password:
         token = generate_token()
-        database.update_token(user['email'], token)
+        database_helper.update_token(user['email'], token)
         logged_users_by_token[token] = email
         response = {'success': True, 'message': 'Successfully signed in.', 'token': token}
     else:
@@ -97,7 +97,7 @@ def sign_up():
     condition = [isinstance(arg.get(key,None), str) for key in sign_up_required_keys]
     if all(condition):
         new_user = (email, password, firstname, familyname, gender, city, country, token)
-        if database.add_user(*new_user):
+        if database_helper.add_user(*new_user):
             response = {'success': True, 'message': 'Successfully created a new user.'}
         else:
             response = {'success': False, 'message': 'User already exists.'}
@@ -114,7 +114,7 @@ def sign_out():
     email = logged_users_by_token.pop(token, None)
 
     if email:
-        database.update_token(email, '')
+        database_helper.update_token(email, '')
         response = {'success': True, 'message': 'Successfully signed out.'}
     else:
         response = {'success': False, 'message': 'You are not signed in.'}
@@ -131,9 +131,9 @@ def change_password():
 
     if token in logged_users_by_token:
         email = logged_users_by_token[token]
-        user = database.get_user_data_by_email(email)
+        user = database_helper.get_user_data_by_email(email)
         if user['password'] == oldPassword:
-            database.update_password(email, newPassword)
+            database_helper.update_password(email, newPassword)
             response = {'success': True, 'message': 'Password changed.'}
         else:
             response = {'success': False, 'message': 'Wrong password.'}
@@ -149,7 +149,7 @@ def get_user_data_by_token():
     token = arg.get('token', None)
     email = logged_users_by_token.get(token, None)
     if email:
-        response = database.get_user_data_by_email(email)
+        response = database_helper.get_user_data_by_email(email)
         if response:
             del response['password']
             response = {'success': True, 'message': 'User data retrieved.', 'data': response}
@@ -168,7 +168,7 @@ def get_user_data_by_email():
     token = arg.get('token', None)
 
     if logged_users_by_token.get(token, None):
-        response = database.get_user_data_by_email(email)
+        response = database_helper.get_user_data_by_email(email)
         if response:
             del response['password']
             response = {'success': True, 'message': 'User data retrieved.', 'data': response}
@@ -186,7 +186,7 @@ def get_user_messages_by_token():
     token = arg.get('token', None)
     email = logged_users_by_token.get(token, None)
     if email:
-        response = database.get_messages(email_to=email)
+        response = database_helper.get_messages(email_to=email)
         response = {'success': True, 'message': 'User messages retrieved.', 'data': response}
     else:
         response = {'success': False, 'message': 'You are not signed in.'}
@@ -202,7 +202,7 @@ def get_user_messages_by_email():
     token = arg.get('token', None)
 
     if logged_users_by_token.get(token, None):
-        response = database.get_messages(email_to=email)
+        response = database_helper.get_messages(email_to=email)
         response = {'success': True, 'message': 'User messages retrieved.', 'data': response}
     else:
         response = {'success': False, 'message': 'You are not signed in.'}
@@ -221,8 +221,8 @@ def post_message():
     if fromEmail:
         toEmail = arg.get('toEmail', None)
         toEmail = toEmail if toEmail else fromEmail
-        if database.get_user_data_by_email(toEmail):
-            database.add_message(fromEmail, toEmail, content)
+        if database_helper.get_user_data_by_email(toEmail):
+            database_helper.add_message(fromEmail, toEmail, content)
             response = {'success': True, 'message': 'Message posted.'}
         else:
             response = {'success': False, 'message': 'No such user.'}

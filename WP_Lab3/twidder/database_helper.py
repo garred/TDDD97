@@ -3,7 +3,7 @@ from flask import g
 from datetime import datetime
 
 def connect():
-    return sqlite3.connect('database.db')
+    return sqlite3.connect('twidder/database.db')
 
 
 def get():
