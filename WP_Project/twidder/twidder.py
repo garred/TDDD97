@@ -66,7 +66,7 @@ def web_page(web):
     return send_from_directory('static', web)
 
 
-@app.route('/api/sign_in/', methods=['GET'])
+@app.route('/api/sign_in/', methods=['POST'])
 def sign_in():
     arg = request.args.to_dict() # Example: {'password': '12345', 'email': 'a@a'}
     email = arg.get('email', None)
@@ -117,7 +117,7 @@ def sign_up():
     return json.dumps(response)
 
 
-@app.route('/api/sign_out/', methods=['GET'])
+@app.route('/api/sign_out/', methods=['POST'])
 def sign_out():
     arg = request.args.to_dict()
     token = arg.get('token', None)
